@@ -3,8 +3,6 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-/// <reference path="../../../../typings/require.d.ts" />
-
 //@ts-check
 'use strict';
 
@@ -93,7 +91,7 @@ function showPartsSplash(configuration) {
 	let data;
 	if (typeof configuration.partsSplashPath === 'string') {
 		try {
-			data = JSON.parse(require.__$__nodeRequire('fs').readFileSync(configuration.partsSplashPath, 'utf8'));
+			data = JSON.parse(require('fs').readFileSync(configuration.partsSplashPath, 'utf8'));
 		} catch (e) {
 			// ignore
 		}
@@ -182,7 +180,7 @@ function showPartsSplash(configuration) {
  */
 function getLazyEnv() {
 
-	const ipc = require.__$__nodeRequire('electron').ipcRenderer;
+	const ipc = require('electron').ipcRenderer;
 
 	return new Promise(function (resolve) {
 		const handle = setTimeout(function () {
